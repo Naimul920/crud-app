@@ -34,4 +34,9 @@ class ProductController extends Controller
         Product::updateProduct($request,$id);
         return redirect('manage-product/')->with('message','Product update successfull');
     }
+    public function delete($id)
+    {
+        Product::deleteProduct($id);
+        return redirect('/manage-product')->with('message','Product delete successfull');
+    }
 }

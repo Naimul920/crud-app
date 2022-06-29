@@ -42,7 +42,7 @@ class Product extends Model
             {
                 unlink(self::$product->image);
             }
-           return self::$imageUrl=self::getImageUrl($request->file('image'));
+           self::$imageUrl=self::getImageUrl($request->file('image'));
         }
         else
         {
@@ -54,5 +54,14 @@ class Product extends Model
         self::$product->product_description=$request->product_description;
         self::$product->image=self::$imageUrl;
         self::$product->save();
+    }
+    public static function deleteProduct($id)
+    {
+        self::$product=Product::find($id);
+        if (file_exists(self::$product->image))
+        {
+            unlink(self::$product->image);
+        }
+        self::$product->delete();
     }
 }

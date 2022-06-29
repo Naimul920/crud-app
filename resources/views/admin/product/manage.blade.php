@@ -39,7 +39,7 @@
                                     <a href="{{route('product.edit',['id'=>$product->id])}}" class="btn btn-success btn-sm">
                                         <i class="fa fa-edit"></i>
                                     </a>
-                                    <a href="" class="btn btn-danger btn-sm">
+                                    <a href="{{route('product.delete',['id'=>$product->id])}}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure to delete this')">
                                         <i class="fa fa-trash"></i>
                                     </a>
                                 </td>
